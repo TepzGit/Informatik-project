@@ -2,29 +2,48 @@
 <html>
 <style>
 
+.Valgfags {
+	display: flex;
+}
+
 .valgfag {
-	height: 150px; 
-	width: 75%; 
-	margin: 20px auto; 
-	display: flex; 
-	align-items: center; 
-	justify-content: center;
-	background-image: url('music-background.jpg');
-	background-size:100% 100%;
+	width: 25%; 
+	display: grid; 
+	flex-wrap: wrap;
+	margin: auto; 
+	margin-top: 20px;
 }
 
 .valgfag:hover {
     transform: scale(1.05);
 }
 
+.ValgfagName {
+	color: #000000;
+	font-size: 50px;
+	text-align: center;
+}
+
+.valgfagButton {
+	height: 300px; 
+	background-size:100% 100%;
+}
+
 body {
 	background-color: #f0e8d9;
 }
-
+style="background-image: url('/Valgfags/{{.}}/background.jpg');
 </style>
     <body>
-	    <img style="display: block; margin-left: auto; margin-right: auto; width: 25%" src='sukkertoppen.png'>
-	    <div class="Valgfags"></div>
-	    <script src="./Load_valfags.js"></script>
+	    <img style="display: block; margin-left: auto; margin-right: auto; width: 25%" src='/assets/sukkertoppen.png'>
+	    <div class="Valgfags">
+		    {{range .Names}}
+			<div class="valgfag">
+				<button class="valgfagButton" style="background-image: url('/Valgfags/{{.}}/background.jpg');"></button>
+				<p class="ValgfagName">{{.}}</p>
+			</div>
+		    {{end}}
+	    </div>
+	    <!-- <script src="./JS/Load_valfags.js"></script> -->
     </body>
 </html>
