@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
+<style>
+
+.valgfag {
+	height: 150px; 
+	width: 75%; 
+	margin: 20px auto; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center;
+	background-image: url('music-background.jpg');
+	background-size:100% 100%;
+}
+
+.valgfag:hover {
+    transform: scale(1.05);
+}
+
+body {
+	background-color: #f0e8d9;
+}
+
+</style>
     <body>
-        <div style="background-color: #000000; height: 150px; width: 50%; margin-top: 20px;">
-            <p style="color: #ffffff; font-size: 50px; text-align: center; margin: auto;">Musik</p>
-        </div>
-        <div style="background-color: #000000; height: 150px; width: 50%; margin-top: 20px;">
-            <p style="color: #ffffff; font-size: 50px; text-align: center; margin: auto;">Gaming</p>
-        </div>
-        <div style="background-color: #000000; height: 150px; width: 50%; margin-top: 20px;">
-            <p style="color: #ffffff; font-size: 50px; text-align: center; margin: auto;">Film</p>
-        </div>
+	    <img style="display: block; margin-left: auto; margin-right: auto; width: 25%" src='sukkertoppen.png'>
+	    <div class="Valgfags"></div>
+	    <script src="./Load_valfags.js"></script>
     </body>
 </html>
