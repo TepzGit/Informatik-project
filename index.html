@@ -4,35 +4,39 @@
 
 .Valgfags {
 	display: flex;
+	flex-wrap: wrap;
+	padding-top: 30px;
 }
 
 .valgfag {
-	width: 25%; 
 	display: grid; 
-	flex-wrap: wrap;
-	margin: auto; 
-	margin-top: 20px;
+	width: 450px; 
+	padding: 10px;
 }
 
 .valgfag:hover {
     transform: scale(1.05);
 }
 
-.ValgfagName {
-	color: #000000;
-	font-size: 50px;
-	text-align: center;
-}
-
 .valgfagButton {
-	height: 300px; 
+	height: 350px; 
 	background-size:100% 100%;
 }
+
+.ValgfagName {
+	color: #000000;
+	font-family: sans-serif;
+	text-align: center;
+	font-size: 30px;
+	margin: 0;
+	padding-top: 10px;
+}
+
 
 body {
 	background-color: #f0e8d9;
 }
-style="background-image: url('/Valgfags/{{.}}/background.jpg');
+
 </style>
     <body>
 	    <img style="display: block; margin-left: auto; margin-right: auto; width: 25%" src='/assets/sukkertoppen.png'>
