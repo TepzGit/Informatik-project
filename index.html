@@ -44,7 +44,7 @@ body {
 	    <div class="Valgfags">
 		    {{range .Names}}
 			<div class="valgfag">
-				<button class="valgfagButton" style="background-image: url('/Valgfags/{{.}}/background.jpg');"></button>
+				<button class="valgfagButton" onClick="javascript:window.location.href='/{{.}}'" style="background-image: url('/Valgfags/{{.}}/background.jpg');"></button>
 				<p class="ValgfagName">{{.}}</p>
 			</div>
 		    {{end}}
