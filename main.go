@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 type ValgfagsStruct struct {
@@ -25,18 +26,28 @@ func main() {
 	for _,k := range alle_valgfags {
 		file_path := "/Valgfags/" + k.Name()
 		fmt.Println(file_path)
-		http.Handle(file_path, http.StripPrefix(file_path, http.FileServer(http.Dir(file_path))))
+		//http.Handle(file_path, http.StripPrefix(file_path, http.FileServer(http.Dir(file_path))))
+		http.HandleFunc("/"+k.Name(), valgfag)
 		Valgfags.Names = append(Valgfags.Names, k.Name())
-
 	}
 
 	http.ListenAndServe("127.0.0.1:8080", nil)
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
-	fmt.Println(r.URL)
-
-	tmpl,_ := template.ParseFiles(filepath.Join("index.html"))
+	tmpl,_ := template.ParseFiles(filepath.Join("./templates/home.html"))
 	tmpl.Execute(w, Valgfags)
 }
 
+func valgfag(w http.ResponseWriter, r *http.Request) {
+	name := strings.Trim(r.URL.String(), "/")
+
+	var data struct {
+		Name string
+	}
+
+	data.Name = name
+
+	tmpl,_ := template.ParseFiles(filepath.Join("./templates/valgfag.html"))
+	tmpl.Execute(w, data)
+}
