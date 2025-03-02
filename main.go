@@ -20,12 +20,12 @@ func main() {
 	http.Handle("/Valgfags/", http.StripPrefix("/Valgfags/", http.FileServer(http.Dir("./Valgfags/"))))
 	http.Handle("/JS/", http.StripPrefix("/JS/", http.FileServer(http.Dir("./JS/"))))
 	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets"))))
+	fmt.Println("Go to http://127.0.0.1:8080")
 
 
 	alle_valgfags,_ := os.ReadDir("./Valgfags")
 	for _,k := range alle_valgfags {
-		file_path := "/Valgfags/" + k.Name()
-		fmt.Println(file_path)
+		//file_path := "/Valgfags/" + k.Name()
 		//http.Handle(file_path, http.StripPrefix(file_path, http.FileServer(http.Dir(file_path))))
 		http.HandleFunc("/"+k.Name(), valgfag)
 		Valgfags.Names = append(Valgfags.Names, k.Name())
