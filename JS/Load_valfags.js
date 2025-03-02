@@ -1,4 +1,3 @@
-const Alle_Valgfag = ["Musik", "Gaming", "Film"]
 
 const valgfags = document.getElementsByClassName("Valgfags");
 
