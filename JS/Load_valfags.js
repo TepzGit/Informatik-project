@@ -1,3 +1,4 @@
+const Alle_Valgfag = ["Fest", "Film", "Lan", "Musik", "Science", "Sport"]
 
 const valgfags = document.getElementsByClassName("Valgfags");
 
