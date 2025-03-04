@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"net/http"
@@ -41,16 +42,16 @@ func valgfag(w http.ResponseWriter, r *http.Request) {
 
 	var data struct {
 		Name        string
-		Information string
+		Information string `json:"Information"`
 	}
 
 	data.Name = name
 
-	file, err := os.ReadFile(filepath.Join("Valgfags", name, "Information.txt"))
+	file, err := os.ReadFile(filepath.Join("Valgfags", name, "Data.json"))
 	if err != nil {
 		data.Information = "Kun ikke finde information"
 	} else {
-		data.Information = string(file)
+		json.Unmarshal(file, &data)
 	}
 
 	tmpl, _ := template.ParseFiles(filepath.Join("./templates/valgfag.html"))
